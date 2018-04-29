@@ -1,0 +1,30 @@
+<!--
+  Generated template for the FacturePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Facture</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h3></h3>
+  <ion-list>
+    <p><strong>
+      Lorsque les œuvres de bienfaisance demandent concrètement des dons en nature, cela a du sens.
+      Il existe un besoin.
+      La logistique nécessaire pour que les biens donnés arrivent au bon endroit est prête.
+    </strong></p>
+    <ion-list-header>dons disponibles</ion-list-header>
+    <button ion-item *ngFor="let item of dons" (click)="donTapped($event, item)">
+      <ion-icon ios="ios-pricetags" md="md-pricetags" end></ion-icon>
+      {{ item.title }}
+    </button>
+  </ion-list>
+</ion-content>

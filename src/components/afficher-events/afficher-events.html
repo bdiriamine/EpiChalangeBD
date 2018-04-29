@@ -1,0 +1,11 @@
+<!-- Generated template for the AfficherEventsComponent component -->
+<ion-list>
+  <ion-item ion-item *ngFor="let event of evennements">
+    <h3>Titre:</h3>  {{event.titre}}
+    <h3>Auteur:</h3>  {{event.proprietaire}}
+    <h3>Date de la création:</h3>  {{event.dateDemande|date:'d MMM y'}}
+    <h3>Date programmée:</h3>  {{event.dateProposition|date:'d MMM y'}}
+    <h3>Description:</h3>  {{event.description}}
+    <ion-item-divider></ion-item-divider>
+  </ion-item>
+</ion-list>

@@ -18,13 +18,13 @@
     
     <ion-list>
         <ion-list-header> Sondage </ion-list-header>
-        <ion-item *ngFor="let sdg of sond">
+        <ion-item *ngFor="let sdg of sondages">
           
-            <h2> Titre: {{sdg.Text}}</h2>
+            <h2> Titre: {{sdg.text}}</h2>
             <h1>pour : </h1>
-         <button ion-button  (click)="ajouternadaa()"> <h4>nadaa: {{sdg.nadaa}} </h4></button>   <br>
-         <button ion-button  (click)="ajouternahdha()"> nahdha :  {{sdg.nahdha}} </button>   <br>
-            <button ion-button  (click)="ajoutersabst()"> je  m'abstiens :  {{sdg.m_abstiens}}</button>
+         <button ion-button  (click)="ajouternadaa(nada)"> nadaa: {{sdg.nadaa}}</button>   <br>
+         <button ion-button  (click)="ajouternahdha(nahdha)"> nahdha :  {{sdg.nahdha}} </button>   <br>
+            <button ion-button  (click)="ajoutersabst(mabs)"> je  m'abstiens :  {{sdg.m_abstiens}}</button>
           
          </ion-item>
         </ion-list>

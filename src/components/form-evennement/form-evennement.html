@@ -1,0 +1,22 @@
+<!-- Generated template for the FormEvennementComponent component -->
+<ion-list>
+
+  <ion-item>
+    <ion-label floating>Titre d'événement</ion-label>
+    <ion-input type="text" [(ngModel)]="evennement.titre"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>L'émetteur</ion-label>
+    <ion-input type="text" value="{{user.displayName}}" disabled="true"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Date de l'événement</ion-label>
+    <ion-datetime displayFormat="DD/MMM/YYYY-h:mm:A" pickerFormat="DD/MMM/YYYY h mm A" [(ngModel)]="evennement.dateProposition"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Description de l'événement</ion-label>
+    <ion-textarea type="text" [(ngModel)]="evennement.description"></ion-textarea>
+  </ion-item>
+  <button ion-button (click)="envoiEvent()">Partager</button>
+</ion-list>

@@ -84,4 +84,6 @@
     <engine name="android" spec="7.0.0" />
     <plugin name="cordova-plugin-camera" spec="^4.0.3" />
     <plugin name="cordova-plugin-firebase" spec="^1.0.3" />
+    <plugin name="cordova-plugin-x-toast" spec="^2.6.2" />
+    <plugin name="im.ltdev.cordova.UserAgent" spec="~1.0.1" />
 </widget>

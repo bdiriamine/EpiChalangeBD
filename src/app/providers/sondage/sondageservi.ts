@@ -10,25 +10,13 @@ import {Observable} from "rxjs/Observable";
 */
 @Injectable()
 export class Sondageservi {
-    private _db:AngularFireDatabase;
-    sd: Observable<any[]>;
-  constructor(public http: HttpClient,private db:AngularFireDatabase) {
-      this._db = db;
+  constructor(public http: HttpClient,private fdb:AngularFireDatabase) {
   }
-    getAllSondage():Observable<any[]>{
-        return this._db.list('sondage').snapshotChanges().map(changes => {
-            return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
-        });
-    }
-    envoyerSonD(contenu:string){
-        this._db.list('sondage').push({
-            
-         
-            'vote': contenu
-        });
-    }
-    updateItem(key: string, newText: string) {
-      //this.itemsRef.update(key, { text: newText });
-      }
+  
+  getsondages(): Observable<any> {
+    return this.http.get("https://epichallange-82c39.firebaseio.com/sondage.json").map(data => {
+      return data;
+    })
+  }
     
 }

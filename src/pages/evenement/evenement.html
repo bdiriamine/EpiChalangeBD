@@ -14,5 +14,8 @@
 
 
 <ion-content padding>
-
+    <ion-card *ngIf="user">
+          <button ion-button block (click)="goToPage()">go To Page</button>
+          <afficher-events [evennements]="evenements" [user]="user"></afficher-events>
+      </ion-card>
 </ion-content>

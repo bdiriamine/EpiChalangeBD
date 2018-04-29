@@ -16,31 +16,34 @@ import {Sondageservi} from '../../app/providers/sondage/sondageservi'
   templateUrl: 'sondage.html',
 })
 export class SondagePage {
-  private _db:Sondageservi;
   itemsRef: AngularFireList<any>;
-  items: Observable<any[]>;
+  sondages: any[];
    nbr : number=0;
-   sond: any[];
    contenu: string;
-  constructor(public navCtrl: NavController, public navParams: NavParams,db: AngularFireDatabase,sdd:Sondageservi) {
-    this._db=sdd;
-    this._db.getAllSondage().subscribe(sand => {
-      this.sond =sand   });
-    this.itemsRef = db.list('sondage');
-    // Use snapshotChanges().map() to store the key
-    this.items = this.itemsRef.snapshotChanges().map(changes => {
-      return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
-    });
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SondagePage');
-  }
-  updateItem(key: string, newText: string) {
-    this.itemsRef.update(key, { text: newText });
-  }
-  ajouternadaa(){
+  constructor(public navCtrl: NavController, public navParams: NavParams,private fbd: AngularFireDatabase,
+    private sdd:Sondageservi) {
     
   }
 
+  ionViewDidLoad() {
+    this.sdd.getsondages().subscribe(data => {
+      console.log(data);
+      this.sondages = data;
+      console.log(this.sondages);
+    })
+  }
+  /*
+  updateItem(key: string, newText: string) {
+    this.itemsRef.update(key, { text: newText });
+  }
+  ajouternadaa(key: string,nada:number){
+    nada=nada+1;
+    this.itemsRef.update(key, { nadaa: nada});
+    
+  }*/
+  ajouternadaa(key: string,nada:number){
+    nada=nada+1;
+    this.itemsRef.set(key, { nadaa: nada});
+    
+  }
 }

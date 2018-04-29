@@ -19,13 +19,19 @@
     </ion-toolbar>
   </ion-header>
   
-  <ion-content padding>
-    <ion-list>
-      <ion-list-header>Follow us on Twitter</ion-list-header>
-      <ion-item>
-        <ion-icon name="ionic" item-start></ion-icon>
-        @ionicframework
-      </ion-item>
-    </ion-list>
+<ion-content padding>
+  <h2>Bienvenue {{user.displayName}}</h2>
+  <ion-list>
+    <ion-list-header>Dérniere actualités</ion-list-header>
+    <button ion-item *ngFor="let item of actus" (click)="actusTapped($event, item)">
+      <ion-icon name="star"></ion-icon>
+      {{ item.title }}
+      <p> {{item.datePub }}</p>
+    </button>
+  </ion-list>
+  <p><strong><ion-icon name="star"></ion-icon>
+    des œuvres de bienfaisance sont disponibles</strong></p>
+  <button ion-button color="primary" (click)="goToPayment()">
+    consulter
+  </button>
   </ion-content>
-  
