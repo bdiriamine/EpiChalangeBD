@@ -20,12 +20,12 @@ export class DeclarationPage {
 
   photo:any;
 
-
+  description:string;
 
   declaration = {
     description:null,
     date:"29/04/2018",
-    image:this.photo
+    image:null
   };
 
 
@@ -58,7 +58,12 @@ export class DeclarationPage {
 
   valider() {
 
-    this.db.list("/declarations").push(this.declaration);
+    const declaration = {
+      description:this.description,
+      date:"29/04/2018",
+      image:this.photo
+    };
+    this.db.list("/declarations").push(declaration);
     let storage = firebase.storage();
     const pictures = storage.ref("declarations-images");
     pictures.putString(this.photo,'data_url');
