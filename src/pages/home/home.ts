@@ -8,6 +8,7 @@ import { ContactPage } from '../contact/contact';
 import { SondagePage } from '../sondage/sondage';
 import { EvenementPage } from '../evenement/evenement';
 import { QuestionnairePage } from '../questionnaire/questionnaire';
+import { DeclarationPage } from '../declaration/declaration';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -55,7 +56,7 @@ ionViewDidLoad() {
   
 }
 gotoDeclarationPage(){
- this.navCtrl.push(SondagePage);
+ this.navCtrl.push(DeclarationPage);
 }
 gotoEvenementPage(){
   this.navCtrl.push(EvenementPage);

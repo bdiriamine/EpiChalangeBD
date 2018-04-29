@@ -23,6 +23,7 @@ import { EvenementPage } from '../pages/evenement/evenement';
 import { SondagePage } from '../pages/sondage/sondage';
 import { Sondageservi } from './providers/sondage/sondageservi';
 import { HttpClientModule } from '@angular/common/http';
+import { Camera } from '@ionic-native/camera';
 
 
 const config = {
@@ -74,7 +75,7 @@ const config = {
     StatusBar,
     SplashScreen,
     Sondageservi,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},Camera
   ]
 })
 export class AppModule {}
