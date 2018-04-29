@@ -1,11 +1,31 @@
+<ion-menu [content]="content">
+    <h2>ionic menu </h2>
+    <button ion-button full (click)="gotoDeclarationPage()" >Declaration </button>
+    <button ion-button full  (click)="gotoEvenementPage()">Evenement </button>
+    <button ion-button full  (click)="gotoSondagePage()">Sondage </button>
+    <button ion-button full (click)="gotoQuestionnairePage()" >Questionnaire </button>
+  </ion-menu>
+  
+  <ion-nav #content [root]="rootPage"></ion-nav>
 <ion-header>
-  <ion-navbar>
-    <img ion-right src="" class="navbarLogo" />
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  <h2>Welcome to  Project</h2>
-  <button ion-button color="primary" (click)="logout()">Logout</button>
-</ion-content>
+    <ion-toolbar>
+      <ion-buttons>
+      <button ion-button>
+      <ion-icon menuTolggle name="pages" ></ion-icon>
+        </button>
+      </ion-buttons>
+<ion-title>welcome</ion-title>
+     
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <ion-list>
+      <ion-list-header>Follow us on Twitter</ion-list-header>
+      <ion-item>
+        <ion-icon name="ionic" item-start></ion-icon>
+        @ionicframework
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  

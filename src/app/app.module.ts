@@ -17,6 +17,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth'
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { DeclarationPage } from '../pages/declaration/declaration';
+import { QuestionnairePage } from '../pages/questionnaire/questionnaire';
+import { EvenementPage } from '../pages/evenement/evenement';
+import { SondagePage } from '../pages/sondage/sondage';
+import { Sondageservi } from './providers/sondage/sondageservi';
+import { HttpClientModule } from '@angular/common/http';
 
 
 const config = {
@@ -29,6 +35,10 @@ const config = {
 
 @NgModule({
   declarations: [
+    DeclarationPage,
+    QuestionnairePage,
+    SondagePage,
+    EvenementPage,
     MyApp,
     AboutPage,
     ContactPage,
@@ -41,13 +51,17 @@ const config = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpClientModule,
     AngularFireModule.initializeApp(config),
     AngularFireAuthModule,AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    
+    DeclarationPage,
+    QuestionnairePage,
+    SondagePage,
+    EvenementPage,
     AboutPage,
     ContactPage,
     HomePage,
@@ -59,6 +73,7 @@ const config = {
   providers: [
     StatusBar,
     SplashScreen,
+    Sondageservi,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ToastController  } from 'ionic-angular';
 import { User } from '../../app/providers/models/user';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { HomePage } from '../home/home';
@@ -19,18 +19,27 @@ import { HomePage } from '../home/home';
 })
 export class LoginPage {
 user = {} as User ;
-  constructor(private authf :AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
+email:String;
+password:string;
+  constructor(private authf :AngularFireAuth, public navCtrl: NavController, public navParams: NavParams,private toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+    
   }
   async login(user:User){
     // Your app login API web service call triggers 
    
    const resultat = this.authf.auth.signInWithEmailAndPassword(user.email,user.password)
-   this.navCtrl.setRoot(HomePage);
+   
+   this.navCtrl.push(HomePage,{
+    email :user.email,
+    password : user.password,
+    user:user.displayName,
+    
   
-  }
+  });
+ }
 }
 
